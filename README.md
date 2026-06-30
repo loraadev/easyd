@@ -14,7 +14,7 @@ Sistema web simples de helpdesk para organizar chamados de suporte técnico.
 
 ```bash
 # 1. Clone o repositório
-git clone https://github.com/seu-usuario/easyd.git
+git clone https://github.com/loraadev/easyd.git
 cd easyd
 
 # 2. Instale as dependências
@@ -48,11 +48,11 @@ O arquivo do banco (`easyd.db`) é criado automaticamente na primeira execução
 
 ## Rotas da API
 
-| Método | Rota | Descrição |
-|--------|------|-----------|
-| GET | /api/health | Healthcheck |
-| GET | /api/chamados | Lista chamados (filtros: status, prioridade, busca, ordenar) |
-| GET | /api/chamados/:id | Retorna um chamado |
-| POST | /api/chamados | Cria chamado |
-| PATCH | /api/chamados/:id/status | Atualiza status |
-| DELETE | /api/chamados/:id | Remove chamado |
+| Método | Rota                     | Descrição                                                    |
+| ------ | ------------------------ | ------------------------------------------------------------ |
+| GET    | /api/health              | Healthcheck                                                  |
+| GET    | /api/chamados            | Lista chamados (filtros: status, prioridade, busca, ordenar) |
+| GET    | /api/chamados/:id        | Retorna um chamado                                           |
+| POST   | /api/chamados            | Cria chamado                                                 |
+| PATCH  | /api/chamados/:id/status | Atualiza status                                              |
+| DELETE | /api/chamados/:id        | Remove chamado                                               |
