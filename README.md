@@ -1,4 +1,4 @@
-# Easyd — Gestão de Chamados Técnicos
+# EasyDesk — Gestão de Chamados Técnicos
 
 Sistema web simples de helpdesk para organizar chamados de suporte técnico.
 
