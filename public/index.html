@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Easyd — Gestão de Chamados</title>
+  <link rel="stylesheet" href="/css/style.css" />
+</head>
+<body>
+  <header class="cabecalho">
+    <h1>Easyd</h1>
+    <p>Gestão de Chamados Técnicos</p>
+  </header>
+
+  <main class="conteudo">
+    <!-- Resumo de contadores -->
+    <section class="resumo" aria-label="Resumo de chamados">
+      <div class="contador" id="contador-total">
+        <span class="contador-numero">0</span>
+        <span class="contador-label">Total</span>
+      </div>
+      <div class="contador contador--pendente" id="contador-pendente">
+        <span class="contador-numero">0</span>
+        <span class="contador-label">Pendentes</span>
+      </div>
+      <div class="contador contador--andamento" id="contador-andamento">
+        <span class="contador-numero">0</span>
+        <span class="contador-label">Em andamento</span>
+      </div>
+      <div class="contador contador--concluido" id="contador-concluido">
+        <span class="contador-numero">0</span>
+        <span class="contador-label">Concluídos</span>
+      </div>
+    </section>
+
+    <div class="painel">
+      <!-- Formulário -->
+      <aside class="coluna-formulario">
+        <h2>Novo Chamado</h2>
+        <form id="form-chamado" novalidate>
+          <div class="campo">
+            <label for="solicitante">Solicitante</label>
+            <input type="text" id="solicitante" name="solicitante" maxlength="100" required />
+          </div>
+          <div class="campo">
+            <label for="titulo">Título</label>
+            <input type="text" id="titulo" name="titulo" maxlength="150" required />
+          </div>
+          <div class="campo">
+            <label for="descricao">Descrição</label>
+            <textarea id="descricao" name="descricao" rows="4" maxlength="2000" required></textarea>
+          </div>
+          <div class="campo">
+            <label for="categoria">Categoria</label>
+            <select id="categoria" name="categoria" required>
+              <option value="">Selecione...</option>
+              <option value="hardware">Hardware</option>
+              <option value="software">Software</option>
+              <option value="rede">Rede</option>
+              <option value="acesso">Acesso</option>
+              <option value="outro">Outro</option>
+            </select>
+          </div>
+          <div class="campo">
+            <label for="prioridade">Prioridade</label>
+            <select id="prioridade" name="prioridade" required>
+              <option value="">Selecione...</option>
+              <option value="baixa">Baixa</option>
+              <option value="media">Média</option>
+              <option value="alta">Alta</option>
+            </select>
+          </div>
+          <div id="msg-formulario" class="msg-formulario" role="alert" aria-live="polite"></div>
+          <button type="submit" class="btn btn--primario">Abrir Chamado</button>
+        </form>
+      </aside>
+
+      <!-- Lista de chamados -->
+      <section class="coluna-lista">
+        <div class="lista-cabecalho">
+          <h2>Chamados</h2>
+          <div class="filtros">
+            <input
+              type="search"
+              id="busca"
+              placeholder="Buscar..."
+              aria-label="Buscar chamados"
+            />
+            <select id="filtro-status" aria-label="Filtrar por status">
+              <option value="">Todos os status</option>
+              <option value="pendente">Pendente</option>
+              <option value="em_andamento">Em andamento</option>
+              <option value="concluido">Concluído</option>
+            </select>
+            <select id="filtro-prioridade" aria-label="Filtrar por prioridade">
+              <option value="">Todas as prioridades</option>
+              <option value="alta">Alta</option>
+              <option value="media">Média</option>
+              <option value="baixa">Baixa</option>
+            </select>
+            <select id="ordenar" aria-label="Ordenar por">
+              <option value="criado_em">Mais recente</option>
+              <option value="prioridade">Prioridade</option>
+              <option value="status">Status</option>
+              <option value="titulo">Título</option>
+            </select>
+          </div>
+        </div>
+        <div id="lista-chamados" aria-live="polite">
+          <p class="estado-vazio">Nenhum chamado encontrado.</p>
+        </div>
+      </section>
+    </div>
+  </main>
+
+  <script src="/js/api.js"></script>
+  <script src="/js/ui.js"></script>
+  <script src="/js/main.js"></script>
+</body>
+</html>
